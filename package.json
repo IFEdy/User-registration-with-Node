@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/IFEdy/User-registration-with-Node/issues"
   },
-  "homepage": "https://github.com/IFEdy/User-registration-with-Node#readme"
+  "homepage": "https://github.com/IFEdy/User-registration-with-Node#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
