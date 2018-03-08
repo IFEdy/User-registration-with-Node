@@ -1,11 +1,7 @@
 var express = require('express');
-var app = express.app;
+var app = express();
+var bodyparser = require("body-parser");
 
-function(req, res){
-    res.send("We are on Express");
-
-};
-
-app.listen(3000, function (){
-    console.log("Listening to this App @ 3000");
+app.listen(8000, function (){
+    console.log("Listening to this App @ 8000");
 });
