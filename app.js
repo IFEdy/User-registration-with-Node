@@ -6,9 +6,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static(__dirname + '/public'));
-                       
-app.set('view engine', '.pug');
-app.set('views', __dirname + './views');
+
+
+//this is to help in getting templates from the VIEWS folder
+app.engine('pug', require('pug').__express)       
+app.set('view engine', 'pug')
+app.set('views', __dirname + '/views');
+
 
 var routes = require("./route/index");
 app.use('/', routes);
