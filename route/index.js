@@ -3,8 +3,8 @@ var routes = express.Router();
 // var exports = module.exports = {};
 
 routes.get('/register', function(req, res, next){
-   //return res.render("register", {title: "Register"});
-    return res.send('register hia!');
+   return res.render("register", {title: "Register"});
+    // return res.send('register hia!');
 });
 
 routes.post('/register', function(req, res, next){
