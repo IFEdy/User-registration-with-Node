@@ -13,26 +13,22 @@ var connection = mysql.createConnection({
   database: 'App_db'
 });
 
-//creating a variable that stores user's data
-        var UserData ={
-            Email : req.body.Email,
-            Name : req.body.Name,
-            FavouriteBook : req.body.FavouriteBook,
-            password : req.body.password
-        }
-        
+
+
 connection.connect(function(err) {
   if (err) throw err;
-  console.log('You are now connected...');
-  connection.query("INSERT INTO register_form (Email, Name, FavouriteBook, password) VALUES ?", [UserData], function (err, result) {
+  return err;
+  
+  //console.log('You are now connected...');
+  connection.query("INSERT INTO register_form (Email, Name, FavouriteBook, password) VALUES ?",  function (err, result) {
       if (error) {
             console.log(error.message);
         } else {
-            console.log('success');    
+            return res.redirect("/profile");    
         }
     });
 
-//    console.log(result);
+
 });
 
 app.use(bodyParser.json());

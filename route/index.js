@@ -24,6 +24,13 @@ routes.post('/register', function(req, res, next){
             return next(err);
         }
         
+        //creating a variable that stores user's data
+        var UserData ={
+            Email : req.body.Email,
+            Name : req.body.Name,
+            FavouriteBook : req.body.FavouriteBook,
+            password : req.body.password
+        }
 
      } else{
          //Error created to ensure all fields are filled...
