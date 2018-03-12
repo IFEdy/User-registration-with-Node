@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 // var mongoose =require('mongoose');
 // var mongodb = require('mongodb');
 var mysql = require("mysql");
-var UserData = require("./route/index");
+//var UserData = require("./route/index");
 
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -13,6 +13,14 @@ var connection = mysql.createConnection({
   database: 'App_db'
 });
 
+//creating a variable that stores user's data
+        var UserData ={
+            Email : req.body.Email,
+            Name : req.body.Name,
+            FavouriteBook : req.body.FavouriteBook,
+            password : req.body.password
+        }
+        
 connection.connect(function(err) {
   if (err) throw err;
   console.log('You are now connected...');
