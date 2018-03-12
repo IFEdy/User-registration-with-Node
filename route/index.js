@@ -10,11 +10,11 @@ routes.get('/register', function(req, res, next){
 
 routes.post('/register', function(req, res, next){
 //    return res.send('User Created!');
-    if (req.body.name && 
-        req.body.email &&
-        req.body.FavouriteBook &&
-        req.body.password &&
-        req.body.confirmpassword
+    if (req.body.Email && 
+    req.body.Name &&
+    req.body.FavouriteBook &&
+    req.body.password &&
+    req.body.confirmpassword
     ){
         if( req.body.password !== req.body.confirmpassword){
             var err = new Error('Passwords do not match');
