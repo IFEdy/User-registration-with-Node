@@ -15,8 +15,16 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
   console.log('You are now connected...');
-  
-})
+  con.query("INSERT INTO register_form (Email, Name, FavouriteBook, password) VALUES ?", [UserData], function (err, result) {
+      if (error) {
+            console.log(error.message);
+        } else {
+            console.log('success');    
+        }
+    });
+
+//    console.log(result);
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
