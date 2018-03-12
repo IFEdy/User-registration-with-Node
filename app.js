@@ -1,6 +1,12 @@
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
+var mongoose =require('mongoose');
+
+mongoose.connect("mongodb://localhost/booklib");
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'Connection Error:'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
