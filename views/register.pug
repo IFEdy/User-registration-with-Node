@@ -8,17 +8,17 @@ block content
             form(method='POST' action='/register')
                 div.form-group
                     label(for='Name') Name:
-                    input.Name.form-control(type='text', placeholder = 'Your name', name='Name', class="Name")
+                    input#Name.form-control(type='text', placeholder = 'Your name', name='Name', class="Name")
                 div.form-group
                     label(for='Email') Email:
-                    input.Email.form-control(type='text', placeholder = 'Your Email', name='Email', class="Email")
+                    input#Email.form-control(type='text', placeholder = 'Your Email', name='Email', class="Email")
                 div.form-group
                     label(for='FavouriteBook') Favourite Book:
-                    input.FavouriteBook.form-control(type='text', placeholder = 'Your Favourite book', name='FavouriteBook', class="FavouriteBook")
+                    input#FavouriteBook.form-control(type='text', placeholder = 'Your Favourite book', name='FavouriteBook', class="FavouriteBook")
                 div.form-group
                     label(for='password') password:
-                    input.password.form-control(type='password', placeholder = 'Your password', name='password', class="password")
+                    input#password.form-control(type='password', placeholder = 'Your password', name='password', class="password")
                 div.form-group
                     label(for='confirm password') confirm password:
-                    input.confirmpassword.form-control(type='password', placeholder = 'Confirm passwoed', name='confirmpassword', class="confirmpassword")
+                    input#confirmpassword.form-control(type='password', placeholder = 'Confirm passwoed', name='confirmpassword', class="confirmpassword")
                 button.btn.btn-primary(type='submit') Sign Up
