@@ -13,23 +13,14 @@ var connection = mysql.createConnection({
   database: 'App_db'
 });
 
-
-
-connection.connect(function(err) {
-  if (err) throw err;
-  return err;
-  
-  //console.log('You are now connected...');
-  connection.query("INSERT INTO register_form (Email, Name, FavouriteBook, password) VALUES ?",  function (err, result) {
-      if (error) {
-            console.log(error.message);
-        } else {
-            return res.redirect("/profile");    
-        }
-    });
-
-
+connection.connect((err) => {
+  if (err){
+    console.log('Error connecting to Db');
+    return;
+  }
+  console.log('You Are Connected!');
 });
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));

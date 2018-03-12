@@ -3,6 +3,13 @@ var routes = express.Router();
 var mysql = require ('mysql')
 // var exports = module.exports = {};
 
+
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'App_db'
+});
 routes.get('/register', function(req, res, next){
    return res.render("register", {title: "Register"});
     // return res.send('register hia!');
@@ -23,7 +30,7 @@ routes.post('/register', function(req, res, next){
             err.status = 400;
             return next(err);
         }
-        
+
         //creating a variable that stores user's data
         var UserData ={
             Email : req.body.Email,
@@ -42,6 +49,9 @@ routes.post('/register', function(req, res, next){
 
 //To take user's to the home page when Home button is clicked on the nav
 routes.get('/', function(req, res, next){
+   
+
+ 
     return res.render("home", {title: 'Home'});
 });
 
