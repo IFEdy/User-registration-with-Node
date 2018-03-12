@@ -1,5 +1,6 @@
 var express = require('express');
 var routes = express.Router();
+var mysql = require ('mysql')
 // var exports = module.exports = {};
 
 routes.get('/register', function(req, res, next){
@@ -8,7 +9,23 @@ routes.get('/register', function(req, res, next){
 });
 
 routes.post('/register', function(req, res, next){
-   return res.send('User Created!');
+//    return res.send('User Created!');
+    if (req.body.name && 
+        req.body.email &&
+        req.body.FavouriteBook &&
+        req.body.password &&
+        req.body.confirmpassword
+    ){
+        if( req.body.password !== req.body.confirmpassword){
+            var err = new Error('Passwords do not match');
+            err.status = 400;
+            return next(err);
+        }
+     } else{
+        var err = new Error('All fields required to be filled....');
+        err.status = 400;
+        return next(err);
+    }
 });
 
 routes.get('/', function(req, res, next){

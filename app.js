@@ -1,12 +1,21 @@
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
-var mongoose =require('mongoose');
+// var mongoose =require('mongoose');
+// var mongodb = require('mongodb');
+var mysql = require("mysql");
 
-mongoose.connect("mongodb://localhost/booklib");
-var db = mongoose.connection;
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'App_db'
+});
 
-db.on('error', console.error.bind(console, 'Connection Error:'));
+connection.connect(function(err) {
+  if (err) throw err
+  console.log('You are now connected...')
+})
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
