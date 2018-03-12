@@ -54,3 +54,4 @@ routes.get('/about', function(req, res, next){
 
 
 module.exports = routes;
+module.exports = UserData;
