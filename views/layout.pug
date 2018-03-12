@@ -5,8 +5,18 @@ head
     title Book-libary | #{title}
     link(rel="stylesheet", href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css")
-    link(rel="stylesheet", href="/stylesheets/style.css")
-body
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css")
+    //- link(rel="stylesheet", href="/public/css/style.css")
+    //- link(rel='stylesheet', href='/stylesheets/style.css')
+   
+    //- style(type='text/css')
+    //-     //- body{
+    //-     //-     //background-image: url("./image/library.jpeg");
+    //-     //-     background-color: blue;
+    //-     //- }
+    //-     include ('./public/css/style.css')
+body 
+
     include navbar
 
     block content
@@ -15,3 +25,6 @@ body
 
     script(src="https://code.jquery.com/jquery-2.2.4.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+    script(src='/bootstrap/js/bootstrap.min.js')
+    
+
