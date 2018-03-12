@@ -23,13 +23,7 @@ routes.post('/register', function(req, res, next){
             err.status = 400;
             return next(err);
         }
-        //creating a variable that stores user's data
-        var UserData ={
-            Email : req.body.Email,
-            Name : req.body.Name,
-            FavouriteBook : req.body.FavouriteBook,
-            password : req.body.password
-        }
+        
 
      } else{
          //Error created to ensure all fields are filled...
@@ -54,4 +48,4 @@ routes.get('/about', function(req, res, next){
 
 
 module.exports = routes;
-module.exports = UserData;
+//module.exports = UserData;
