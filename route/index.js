@@ -40,7 +40,6 @@ connection.query("INSERT INTO `register_form` SET ?", UserData, function(err,res
   if(err) {
     return console.log(err.message);
   }  
-    
     });
         module.exports = UserData;
 
@@ -63,7 +62,7 @@ routes.get('/profile', function(req, res, next){
     return res.render("profile", {title: 'Profile'});
 });
 
-//
+//To get user to the Contact page 
 routes.get('/contact', function(req, res, next){
    return res.render('contact', {title: "Contact"});
 });
