@@ -1,7 +1,7 @@
 var express = require('express');
 var routes = express.Router();
 var mysql = require ('mysql');
-
+var bcrypt = require('bcrypt');
 
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -37,6 +37,7 @@ routes.post('/register', function(req, res, next){
             password : req.body.password
     }
 connection.query("INSERT INTO `register_form` SET ?", UserData, function(err,results){
+    var hash = bcrypt.hashSync(req.body.password, 10);
   if(err) {
     return console.log(err.message);
   }  
@@ -73,3 +74,12 @@ routes.get('/about', function(req, res, next){
 
 
 module.exports = routes;
+
+
+//   function isEmailExists(email, callback) {
+//     if (email) {
+//         connection.count({Email: UserData }, function (err, result) {
+//             if (err) {
+//                 return console.log("Email already exist...");
+//             }
+//     });
