@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
 });
 routes.get('/register', function(req, res, next){
    return res.render("register", {title: "Register"});
-    // return res.send('register hia!');
+    // return res.send('register hia!'); 
 });
 
 routes.post('/register', function(req, res, next){
