@@ -55,9 +55,6 @@ connection.query("INSERT INTO `register_form` SET ?", UserData, function(err,res
 
 //To take user's to the home page when Home button is clicked on the nav
 routes.get('/', function(req, res, next){
-   
-
- 
     return res.render("home", {title: 'Home'});
 });
 
@@ -71,4 +68,3 @@ routes.get('/about', function(req, res, next){
 
 
 module.exports = routes;
-//module.exports = UserData;
