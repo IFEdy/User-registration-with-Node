@@ -15,11 +15,10 @@ routes.get('/register', function(req, res, next){
 });
 
 routes.post('/register', function(req, res, next){
-//    return res.send('User Created!');
     //To all fields are filled
     if (req.body.Email && 
     req.body.Name &&
-    req.body.FavouriteBook &&
+    req.body.FavoriteBook &&
     req.body.password &&
     req.body.confirmpassword
     ){
@@ -34,9 +33,15 @@ routes.post('/register', function(req, res, next){
         var UserData ={
             Email : req.body.Email,
             Name : req.body.Name,
-            FavouriteBook : req.body.FavouriteBook,
+            FavoriteBook : req.body.FavoriteBook,
             password : req.body.password
-        }
+    }
+connection.query("INSERT INTO `register_form` SET ?", UserData, function(err,results){
+  if(err) {
+    return console.log(err.message);
+  }  
+    
+    });
         module.exports = UserData;
 
      } else{
@@ -45,6 +50,7 @@ routes.post('/register', function(req, res, next){
         err.status = 400;
         return next(err);
     }
+    return res.redirect("/");
 });
 
 //To take user's to the home page when Home button is clicked on the nav
