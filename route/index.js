@@ -50,7 +50,7 @@ connection.query("INSERT INTO `register_form` SET ?", UserData, function(err,res
         err.status = 400;
         return next(err);
     }
-    return res.redirect("/");
+    return res.redirect("/profile");
 });
 
 //To take user's to the home page when Home button is clicked on the nav
@@ -58,6 +58,12 @@ routes.get('/', function(req, res, next){
     return res.render("home", {title: 'Home'});
 });
 
+//To get user to his/her profile
+routes.get('/profile', function(req, res, next){
+    return res.render("profile", {title: 'Profile'});
+});
+
+//
 routes.get('/contact', function(req, res, next){
    return res.render('contact', {title: "Contact"});
 });
