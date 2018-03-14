@@ -37,13 +37,17 @@ routes.post('/register', function(req, res, next){
             password : req.body.password
     }
 connection.query("INSERT INTO `register_form` SET ?", UserData, function(err,results){
-    var hash = bcrypt.hashSync(req.body.password, 10);
+    const saltRounds = 10;
+    const myPlaintextPassword = req.body.password;
+
+    bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+    // Store hash in your password DB.
+    if(err) throw err;
+    });
   if(err) {
     return console.log(err.message);
   }  
     });
-        module.exports = UserData;
-
      } else{
          //Error created to ensure all fields are filled...
         var err = new Error('All fields required to be filled....');
