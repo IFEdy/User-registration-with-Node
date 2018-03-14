@@ -1,7 +1,6 @@
 var express = require('express');
 var routes = express.Router();
-var mysql = require ('mysql')
-// var exports = module.exports = {};
+var mysql = require ('mysql');
 
 
 var connection = mysql.createConnection({
@@ -38,6 +37,7 @@ routes.post('/register', function(req, res, next){
             FavouriteBook : req.body.FavouriteBook,
             password : req.body.password
         }
+        module.exports = UserData;
 
      } else{
          //Error created to ensure all fields are filled...

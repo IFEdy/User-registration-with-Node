@@ -19,8 +19,15 @@ connection.connect((err) => {
     return;
   }
   console.log('You Are Connected!');
+  var UserData = require('./route/index.js');
+  
+  //inserting into the database(App_db)
+  connection.query("INSERT INTO register_form(Email, Name, FavouriteBook, password) VALUES ( SELECT (Email, Name, FavouriteBook, password) from register_form  WHERE id = 1) ", function(err, result){
+      if(err) throw err;
+  });
 });
 
+//con.query("INSERT INTO students (name,rollno,marks) VALUES ?", [records], function (err, result, fields) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
