@@ -36,12 +36,7 @@ routes.post('/register', function(req, res, next){
             FavoriteBook : req.body.FavoriteBook,
             password : req.body.password
     }
-// var bcrypt = require('bcrypt');
-//     bcrypt.hash(UserData.password, 10, function(err, result){
-//         if(err){
-//             return err;
-//         }
-//     });
+
 connection.query("INSERT INTO `register_form` SET ?", UserData, function(err,results){
 
   if(err) {
@@ -54,6 +49,7 @@ connection.query("INSERT INTO `register_form` SET ?", UserData, function(err,res
         err.status = 400;
         return next(err);
     }
+
     return res.redirect("/profile");
 });
 
