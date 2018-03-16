@@ -36,18 +36,14 @@ routes.post('/register', function(req, res, next){
             FavoriteBook : req.body.FavoriteBook,
             password : req.body.password
     }
+// var bcrypt = require('bcrypt');
+//     bcrypt.hash(UserData.password, 10, function(err, result){
+//         if(err){
+//             return err;
+//         }
+//     });
 connection.query("INSERT INTO `register_form` SET ?", UserData, function(err,results){
-    var bcrypt = require('bcrypt');
-    // const saltRounds = 10;
-    // const myPlaintextPassword = req.body.password;
 
-    bcrypt.hash(req.body.password, 10, function(err, hash) {
-    // Store hash in your password DB.
-});
-    // bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
-    // // Store hash in your password DB.
-    // if(err) throw err;
-    // });
   if(err) {
     return console.log(err.message);
   }  
