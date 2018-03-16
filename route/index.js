@@ -3,6 +3,17 @@ var routes = express.Router();
 var mysql = require ('mysql');
 var bcrypt = require('bcrypt');
 
+//route for login form using .GET
+routes.get('/login', function(req, res, next){
+    return res.render("login", {title:"LogIn"});
+});
+
+//route for login using .post
+routes.post("/login", function(req, res, next){
+    return res.send("Logged In!!!");
+});
+
+//Connecting to the database App_db
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',

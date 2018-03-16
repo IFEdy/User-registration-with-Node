@@ -1,7 +1,15 @@
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
+var session = require("express-session");
 var mysql = require("mysql");
+
+//using the session module to track logins
+app.use(session({
+  secret: "My Node App",    //this is use to sign the session id into the cookie 
+  resave: true,   //this forces the session to be saved in the session store if anything change or not
+  saveUninitialized: false  //this forses all uninitialised sessions to be saved in the session store
+}));
 
 var con = mysql.createConnection({
   host: 'localhost',
