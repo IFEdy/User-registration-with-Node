@@ -10,7 +10,13 @@ routes.get('/login', function(req, res, next){
 
 //route for login using .post
 routes.post("/login", function(req, res, next){
-    return res.send("Logged In!!!");
+    if(req.body.Email && req.body.password ){
+
+    } else{
+        var err = new Error("Email & Password are required!");
+        err.status = 401;
+        return next(err);
+    }
 });
 
 //Connecting to the database App_db
