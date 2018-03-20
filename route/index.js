@@ -12,6 +12,42 @@ routes.get('/login', function(req, res, next){
 routes.post("/login", function(req, res, next){
     if(req.body.Email && req.body.password ){
 
+// exports.login = function(req,res){
+//   var email= req.body.email;
+//   var password = req.body.password;
+  connection.query('SELECT * FROM register_form WHERE Email = ?',[UserData], function (error, results, fields) {
+  if (error) {
+    // console.log("error ocurred",error);
+    res.send({
+      "code":400,
+      "failed":"error ocurred"
+    })
+  }else{
+    // console.log('The solution is: ', results);
+    if(results.length >0){
+      if([0].password == password){
+        res.send({
+          "code":200,
+          "success":"login sucessfull"
+            });
+      }
+      else{
+        res.send({
+          "code":204,
+          "success":"Email and password does not match"
+            });
+      }
+    }
+    else{
+      res.send({
+        "code":204,
+        "success":"Email does not exits"
+          });
+    }
+  }
+  });
+// }
+
     } else{
         var err = new Error("Email & Password are required!");
         err.status = 401;
@@ -93,10 +129,30 @@ routes.get('/about', function(req, res, next){
 module.exports = routes;
 
 
-//   function isEmailExists(email, callback) {
-//     if (email) {
-//         connection.count({Email: UserData }, function (err, result) {
-//             if (err) {
-//                 return console.log("Email already exist...");
-//             }
-//     });
+// exports.login = function(req, res){
+//    var message = '';
+//    var sess = req.session; 
+ 
+//    if(req.method == "POST"){
+//       var post  = req.body;
+//       var name= post.user_name;
+//       var pass= post.password;
+     
+//       var sql="SELECT id, first_name, last_name, user_name FROM `users` WHERE `user_name`='"+name+"' and password = '"+pass+"'";                           
+//       db.query(sql, function(err, results){      
+//          if(results.length){
+//             req.session.userId = results[0].id;
+//             req.session.user = results[0];
+//             console.log(results[0].id);
+//             res.redirect('/home/dashboard');
+//          }
+//          else{
+//             message = 'Wrong Credentials.';
+//             res.render('index.ejs',{message: message});
+//          }
+                 
+//       });
+//    } else {
+//       res.render('index.ejs',{message: message});
+//    }         
+// };
